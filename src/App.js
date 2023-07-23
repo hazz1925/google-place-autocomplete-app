@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import { Layout } from "antd";
+import store from "./redux/store";
+import SearchPlace from "./SearchPlace";
+
+const { Header, Content } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Layout>
+        <Header>
+          <h1 style={{ color: "#fff" }}>Google Place Autocomplete</h1>
+        </Header>
+        <Content style={{ padding: "50px", textAlign: "center" }}>
+          <SearchPlace />
+        </Content>
+      </Layout>
+    </Provider>
   );
 }
 
